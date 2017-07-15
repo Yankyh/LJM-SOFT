@@ -248,7 +248,8 @@ namespace LJMSOFT.View
 
         private void TelaRegistro_Load(object sender, EventArgs e)
         {
-
+            ////////fasdasdsa
+            MessageBox.Show("dsa");
         }
     }
 
