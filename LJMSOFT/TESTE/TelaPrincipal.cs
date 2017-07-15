@@ -15,6 +15,7 @@ namespace LJMSOFT.View
         public Form2()
         {
             InitializeComponent();
+            MessageBox.Show("@@@");
         }
 
         private void Form2_Load(object sender, EventArgs e)
