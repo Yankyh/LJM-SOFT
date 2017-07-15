@@ -15,7 +15,7 @@ namespace LJMSOFT.View
         public Form2()
         {
             InitializeComponent();
-            MessageBox.Show("Tesdasdsate");
+            MessageBox.Show("Tesdasdsa333te");
         }
 
         private void Form2_Load(object sender, EventArgs e)
