@@ -1,6 +1,6 @@
-﻿namespace LJMSOFT.View
+﻿namespace LJMSOFT.View.PessoaView
 {
-    partial class TelaTipoPessoa
+    partial class SetorAtividadeTela
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "TelaTipoPessoa";
+            this.Text = "SetorAtividadeTela";
         }
 
         #endregion

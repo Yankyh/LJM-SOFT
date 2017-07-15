@@ -1,0 +1,240 @@
+﻿namespace LJMSOFT.View
+{
+    partial class TelaTipoPessoa
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.apelidoBox = new System.Windows.Forms.RichTextBox();
+            this.tipoCombo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.nomeBox = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.codigoBox = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.setorAtividadeCombo = new System.Windows.Forms.ComboBox();
+            this.SuspendLayout();
+            // 
+            // apelidoBox
+            // 
+            this.apelidoBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apelidoBox.Location = new System.Drawing.Point(-306, -53);
+            this.apelidoBox.Multiline = false;
+            this.apelidoBox.Name = "apelidoBox";
+            this.apelidoBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.apelidoBox.Size = new System.Drawing.Size(242, 26);
+            this.apelidoBox.TabIndex = 49;
+            this.apelidoBox.Text = "";
+            // 
+            // tipoCombo
+            // 
+            this.tipoCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tipoCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tipoCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoCombo.Location = new System.Drawing.Point(-303, 14);
+            this.tipoCombo.MaxDropDownItems = 99;
+            this.tipoCombo.Name = "tipoCombo";
+            this.tipoCombo.Size = new System.Drawing.Size(121, 26);
+            this.tipoCombo.TabIndex = 37;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(-306, -15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 17);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Tipo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-306, -82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 17);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Apelido/Nome Fantasia";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(-303, 308);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 34);
+            this.button2.TabIndex = 38;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // nomeBox
+            // 
+            this.nomeBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeBox.Location = new System.Drawing.Point(61, 86);
+            this.nomeBox.Multiline = false;
+            this.nomeBox.Name = "nomeBox";
+            this.nomeBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.nomeBox.Size = new System.Drawing.Size(237, 26);
+            this.nomeBox.TabIndex = 62;
+            this.nomeBox.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(636, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 17);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Código";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(299, 57);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(144, 17);
+            this.label13.TabIndex = 53;
+            this.label13.Text = "Alçada de aprovação";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(58, 57);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 17);
+            this.label14.TabIndex = 52;
+            this.label14.Text = "Nome";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(509, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 34);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(617, 353);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 34);
+            this.button3.TabIndex = 58;
+            this.button3.Text = "Registrar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // codigoBox
+            // 
+            this.codigoBox.Enabled = false;
+            this.codigoBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codigoBox.Location = new System.Drawing.Point(639, 86);
+            this.codigoBox.Multiline = false;
+            this.codigoBox.Name = "codigoBox";
+            this.codigoBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.codigoBox.Size = new System.Drawing.Size(74, 26);
+            this.codigoBox.TabIndex = 65;
+            this.codigoBox.Text = "";
+            this.codigoBox.TextChanged += new System.EventHandler(this.richTextBox6_TextChanged);
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.richTextBox2.Enabled = false;
+            this.richTextBox2.Location = new System.Drawing.Point(61, 151);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(652, 178);
+            this.richTextBox2.TabIndex = 66;
+            this.richTextBox2.Text = "";
+            // 
+            // setorAtividadeCombo
+            // 
+            this.setorAtividadeCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.setorAtividadeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.setorAtividadeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.setorAtividadeCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setorAtividadeCombo.FormattingEnabled = true;
+            this.setorAtividadeCombo.Location = new System.Drawing.Point(302, 86);
+            this.setorAtividadeCombo.Name = "setorAtividadeCombo";
+            this.setorAtividadeCombo.Size = new System.Drawing.Size(243, 26);
+            this.setorAtividadeCombo.TabIndex = 67;
+            // 
+            // TelaTipoPessoa
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(768, 412);
+            this.Controls.Add(this.setorAtividadeCombo);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.codigoBox);
+            this.Controls.Add(this.nomeBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.apelidoBox);
+            this.Controls.Add(this.tipoCombo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
+            this.Name = "TelaTipoPessoa";
+            this.Text = "TelaTipoPessoa";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private System.Windows.Forms.RichTextBox apelidoBox;
+        private System.Windows.Forms.ComboBox tipoCombo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox nomeBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox codigoBox;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.ComboBox setorAtividadeCombo;
+    }
+}

@@ -36,9 +36,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.complementoTab = new System.Windows.Forms.TabPage();
             this.pessoaComplemento = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.categoriaAtividadeCombo = new System.Windows.Forms.ComboBox();
+            this.setorAtividadeCombo = new System.Windows.Forms.ComboBox();
+            this.ramoAtividadeCombo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -165,11 +165,11 @@
             // 
             // complementoTab
             // 
-            this.complementoTab.BackColor = System.Drawing.Color.Gainsboro;
+            this.complementoTab.BackColor = System.Drawing.Color.LightGray;
             this.complementoTab.Controls.Add(this.pessoaComplemento);
-            this.complementoTab.Controls.Add(this.comboBox3);
-            this.complementoTab.Controls.Add(this.comboBox2);
-            this.complementoTab.Controls.Add(this.comboBox5);
+            this.complementoTab.Controls.Add(this.categoriaAtividadeCombo);
+            this.complementoTab.Controls.Add(this.setorAtividadeCombo);
+            this.complementoTab.Controls.Add(this.ramoAtividadeCombo);
             this.complementoTab.Controls.Add(this.label12);
             this.complementoTab.Controls.Add(this.label11);
             this.complementoTab.Controls.Add(this.label10);
@@ -191,35 +191,44 @@
             this.pessoaComplemento.TabIndex = 40;
             this.pessoaComplemento.Visible = false;
             // 
-            // comboBox3
+            // categoriaAtividadeCombo
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.White;
-            this.comboBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(568, 40);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(243, 26);
-            this.comboBox3.TabIndex = 39;
+            this.categoriaAtividadeCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.categoriaAtividadeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoriaAtividadeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.categoriaAtividadeCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriaAtividadeCombo.FormattingEnabled = true;
+            this.categoriaAtividadeCombo.Location = new System.Drawing.Point(568, 40);
+            this.categoriaAtividadeCombo.Name = "categoriaAtividadeCombo";
+            this.categoriaAtividadeCombo.Size = new System.Drawing.Size(243, 26);
+            this.categoriaAtividadeCombo.TabIndex = 39;
+            this.categoriaAtividadeCombo.Enter += new System.EventHandler(this.keyDownf3CategoriaAtividade);
             // 
-            // comboBox2
+            // setorAtividadeCombo
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.White;
-            this.comboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(288, 40);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(243, 26);
-            this.comboBox2.TabIndex = 38;
+            this.setorAtividadeCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.setorAtividadeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.setorAtividadeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.setorAtividadeCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setorAtividadeCombo.FormattingEnabled = true;
+            this.setorAtividadeCombo.Location = new System.Drawing.Point(288, 40);
+            this.setorAtividadeCombo.Name = "setorAtividadeCombo";
+            this.setorAtividadeCombo.Size = new System.Drawing.Size(243, 26);
+            this.setorAtividadeCombo.TabIndex = 38;
+            this.setorAtividadeCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDownf3SetorAtividade);
             // 
-            // comboBox5
+            // ramoAtividadeCombo
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.White;
-            this.comboBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(17, 40);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(243, 26);
-            this.comboBox5.TabIndex = 37;
+            this.ramoAtividadeCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ramoAtividadeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ramoAtividadeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ramoAtividadeCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ramoAtividadeCombo.FormattingEnabled = true;
+            this.ramoAtividadeCombo.Location = new System.Drawing.Point(17, 40);
+            this.ramoAtividadeCombo.Name = "ramoAtividadeCombo";
+            this.ramoAtividadeCombo.Size = new System.Drawing.Size(243, 26);
+            this.ramoAtividadeCombo.TabIndex = 37;
+            this.ramoAtividadeCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDownf3RamoAtividade);
             // 
             // label12
             // 
@@ -671,8 +680,9 @@
             // 
             // tipoCombo
             // 
-            this.tipoCombo.BackColor = System.Drawing.Color.White;
+            this.tipoCombo.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tipoCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.tipoCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tipoCombo.Location = new System.Drawing.Point(58, 141);
             this.tipoCombo.MaxDropDownItems = 99;
@@ -692,7 +702,7 @@
             this.apelidoBox.Name = "apelidoBox";
             this.apelidoBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.apelidoBox.Size = new System.Drawing.Size(242, 26);
-            this.apelidoBox.TabIndex = 25;
+            this.apelidoBox.TabIndex = 1;
             this.apelidoBox.Text = "";
             // 
             // razaoSocialBox
@@ -703,7 +713,7 @@
             this.razaoSocialBox.Name = "razaoSocialBox";
             this.razaoSocialBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.razaoSocialBox.Size = new System.Drawing.Size(242, 26);
-            this.razaoSocialBox.TabIndex = 31;
+            this.razaoSocialBox.TabIndex = 2;
             this.razaoSocialBox.Text = "";
             // 
             // cpfCnpjBox
@@ -714,7 +724,7 @@
             this.cpfCnpjBox.Name = "cpfCnpjBox";
             this.cpfCnpjBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.cpfCnpjBox.Size = new System.Drawing.Size(242, 26);
-            this.cpfCnpjBox.TabIndex = 32;
+            this.cpfCnpjBox.TabIndex = 3;
             this.cpfCnpjBox.Text = "";
             // 
             // richTextBox6
@@ -738,7 +748,7 @@
             this.telefoneBox.Name = "telefoneBox";
             this.telefoneBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.telefoneBox.Size = new System.Drawing.Size(169, 26);
-            this.telefoneBox.TabIndex = 34;
+            this.telefoneBox.TabIndex = 5;
             this.telefoneBox.Text = "";
             // 
             // celularBox
@@ -749,7 +759,7 @@
             this.celularBox.Name = "celularBox";
             this.celularBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.celularBox.Size = new System.Drawing.Size(169, 26);
-            this.celularBox.TabIndex = 35;
+            this.celularBox.TabIndex = 6;
             this.celularBox.Text = "";
             this.celularBox.TextChanged += new System.EventHandler(this.celularBox_TextChanged);
             this.celularBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyPressf3);
@@ -763,7 +773,7 @@
             this.emailBox.Name = "emailBox";
             this.emailBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.emailBox.Size = new System.Drawing.Size(239, 26);
-            this.emailBox.TabIndex = 36;
+            this.emailBox.TabIndex = 7;
             this.emailBox.Text = "";
             // 
             // TelaRegistro
@@ -858,9 +868,9 @@
         private System.Windows.Forms.RichTextBox razaoSocialBox;
         private System.Windows.Forms.RichTextBox cpfCnpjBox;
         private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox categoriaAtividadeCombo;
+        private System.Windows.Forms.ComboBox setorAtividadeCombo;
+        private System.Windows.Forms.ComboBox ramoAtividadeCombo;
         private System.Windows.Forms.RichTextBox telefoneBox;
         private System.Windows.Forms.RichTextBox celularBox;
         private System.Windows.Forms.RichTextBox emailBox;
