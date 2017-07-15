@@ -19,7 +19,7 @@ namespace LJMSOFT.View
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("hue");
+            
         }
     }
 }
