@@ -16,7 +16,7 @@ namespace LJMSOFT.View
         public TelaLogin()
         {
             InitializeComponent();
-            MessageBox.Show("dasdsa");
+            
         }
 
         private void TelaLogin_Load(object sender, EventArgs e)

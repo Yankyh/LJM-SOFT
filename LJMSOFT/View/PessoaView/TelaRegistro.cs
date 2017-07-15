@@ -136,7 +136,7 @@ namespace LJMSOFT.View
         private void keyDownf3Tipo(object sender, KeyEventArgs e)
         {
 
-            if(e.KeyCode == Keys.F3)
+            if(e.KeyCode == Keys.F3) 
             {
                 TelaTipoPessoa TelaTipoPessoa = new TelaTipoPessoa();
                 TelaTipoPessoa.Show();
@@ -252,9 +252,7 @@ namespace LJMSOFT.View
 
 
 
-                                    MessageBox.Show(existeRazaoSocial);
-                                    MessageBox.Show(existeCpfCnpj);
-                                    MessageBox.Show(existeApelido);
+                                  
                                     //Se retornar vazio é pq não tem nenhum usuário com esses dados
                                     if (existeRazaoSocial == "1")
                                     {
@@ -357,7 +355,7 @@ namespace LJMSOFT.View
 
         private void TelaRegistro_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("hue");
+            
         }
     }
 
