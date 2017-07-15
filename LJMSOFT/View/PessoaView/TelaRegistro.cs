@@ -357,7 +357,7 @@ namespace LJMSOFT.View
 
         private void TelaRegistro_Load(object sender, EventArgs e)
         {
-       
+            MessageBox.Show("hue");
         }
     }
 
