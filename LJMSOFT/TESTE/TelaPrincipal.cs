@@ -21,6 +21,7 @@ namespace LJMSOFT.View
         {
             MessageBox.Show("hue");
             MessageBox.Show("hue");
+            MessageBox.Show("hue");
         }
     }
 }
