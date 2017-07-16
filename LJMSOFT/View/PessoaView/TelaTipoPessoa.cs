@@ -18,10 +18,10 @@ namespace LJMSOFT.View
         int tipoHandle = TelaRegistro.getTipoHandle();
         static int status = 0;
 
-       
+
         //Conexao com banco
-        static public String conString = "Data Source=DESKTOP-1DAI7PD;Initial Catalog=SGBDSOFT;Integrated Security=True";
-        SqlConnection conexaoBanco = new SqlConnection(conString);
+        Conexao conexao = new Conexao();
+
         TelaRegistro TelaRegistro = new TelaRegistro();
 
         public TelaTipoPessoa()
@@ -33,8 +33,7 @@ namespace LJMSOFT.View
 
         public void gettipoHandle()
         {
-            // conexaoBanco.Open();
-            Conexao conexao = new Conexao();
+            conexao.Desconectar();
             conexao.Conectar();
             MessageBox.Show("Entrou");
            
@@ -44,8 +43,8 @@ namespace LJMSOFT.View
 
                 {
                     String query1 = "SELECT * FROM US_TIPO WHERE HANDLE = '" + tipoHandle + "'";
-                    SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
-                    SqlDataReader reader = cmd1.ExecuteReader();
+                   
+                    SqlDataReader reader = conexao.Pesquisa(query1);
 
                     while (reader.Read())
                     {
@@ -75,19 +74,20 @@ namespace LJMSOFT.View
 
                 }
             }
-           // conexao.Desconectar();
-                conexaoBanco.Close();
+
+                conexao.Desconectar();
 
         }
 
         public int getTipoHandleByName()
         {
-            conexaoBanco.Close();
-            conexaoBanco.Open();
+            conexao.Desconectar();
+            conexao.Conectar();
+            
 
             String query7 = "SELECT HANDLE FROM US_TIPO WHERE NOME = '" + nomeBox.Text + "'";
-            SqlCommand cmd7 = new SqlCommand(query7, conexaoBanco);
-            SqlDataReader reader = cmd7.ExecuteReader();
+           
+            SqlDataReader reader = conexao.Pesquisa(query7);
 
             while (reader.Read())
             {
@@ -95,7 +95,7 @@ namespace LJMSOFT.View
             }
             reader.Close();
 
-            conexaoBanco.Close();
+            conexao.Desconectar();
 
             return tipoHandle;
         }
@@ -126,7 +126,8 @@ namespace LJMSOFT.View
 
         private void gravarButton_Click(object sender, EventArgs e)
         {
-
+            conexao.Desconectar();
+            conexao.Conectar();
             if (status == 3)
             {
                 if (gravarButton.Text == "Voltar")
@@ -135,19 +136,20 @@ namespace LJMSOFT.View
                     this.Text = "Tipo - Ag. Modificações";
                     gravarButton.Text = "Liberar";
                     status = 2;
+                    String query8 = "UPDATE US_TIPO SET STATUS = " + 2 + " WHERE HANDLE = " + tipoHandle + "";
+                    conexao.Inserir(query8);
                 }
                 else
                 {
-                    conexaoBanco.Open();
+                    
                     String query3 = "UPDATE US_TIPO SET STATUS = " + 3 + " WHERE HANDLE = "+tipoHandle+"";
-                    MessageBox.Show(query3);
-                    SqlCommand cmd3 = new SqlCommand(query3, conexaoBanco);
-                    cmd3.ExecuteNonQuery();
+                    conexao.Inserir(query3);
+
                     nomeBox.Enabled = false;
                     this.Text = "Tipo - Ativo";
                     gravarButton.Text = "Voltar";
 
-                    conexaoBanco.Close();
+                   
                 }
                
             }
@@ -155,7 +157,7 @@ namespace LJMSOFT.View
             {
                 nomeTipo = nomeBox.Text;
 
-                conexaoBanco.Open();
+             
 
                 //Query para dar insert nos dados
                 if (nomeTipo != "")
@@ -163,8 +165,8 @@ namespace LJMSOFT.View
                     int existeHandle = -1;
                     //Verifica se o handle já existe
                     String query5 = "SELECT HANDLE FROM US_TIPO WHERE HANDLE = '" + tipoHandle + "'";
-                    SqlCommand cmd5 = new SqlCommand(query5, conexaoBanco);
-                    SqlDataReader reader = cmd5.ExecuteReader();
+                    
+                    SqlDataReader reader = conexao.Pesquisa(query5);
 
                     while (reader.Read())
                     {
@@ -175,9 +177,8 @@ namespace LJMSOFT.View
                     if(existeHandle > 0)
                     {
                         String query6 = "UPDATE US_TIPO SET NOME = '"+nomeTipo+"', STATUS = "+3+" WHERE HANDLE = "+tipoHandle;
-                        MessageBox.Show(query6);
-                        SqlCommand cmd6 = new SqlCommand(query6, conexaoBanco);
-                        cmd6.ExecuteNonQuery();
+
+                        conexao.Inserir(query6);
 
                         gravarButton.Text = "Voltar";
                         this.Text = "Tipo - Ativo";
@@ -187,22 +188,14 @@ namespace LJMSOFT.View
                     else
                     {
                         String query1 = "INSERT INTO US_TIPO (NOME, STATUS) VALUES ('" + nomeTipo + "', '" + 1 + "')";
-                        SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
-                        cmd1.ExecuteNonQuery();
+                        conexao.Inserir(query1);
+
                         this.Text = "Tipo - Cadastrado";
                         gravarButton.Text = "Liberar";
                         MessageBox.Show("Liberado");
                         status = 3;
                         codigoBox.Text = getTipoHandleByName().ToString();
                     }
-
-
-
-
-
-
-
-
                
                 }
                 else
@@ -211,7 +204,7 @@ namespace LJMSOFT.View
                 }
 
 
-                conexaoBanco.Close();
+                conexao.Desconectar();
             }
         }
 

@@ -21,12 +21,17 @@ namespace LJMSOFT.DAL
             this.conexao.ConnectionString = this.stringConexao;
         }
 
-        public SqlDataReader Pesquisa(String pesquisa)
+        public SqlDataReader Pesquisa(String query)
         {
-            this.cmd = new SqlCommand(pesquisa, this.conexao);
+            this.cmd = new SqlCommand(query, this.conexao);
             SqlDataReader resultSet = cmd.ExecuteReader();
-            
             return resultSet;
+        }
+
+        public void Inserir(String query)
+        {
+            this.cmd = new SqlCommand(query, this.conexao);
+            cmd.ExecuteNonQuery();
         }
         //open
         public void Conectar()

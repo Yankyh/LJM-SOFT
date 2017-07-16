@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LJMSOFT.Mod;
+using LJMSOFT.DAL;
 using System.Data.SqlClient;
 
 namespace LJMSOFT.View
@@ -19,17 +20,15 @@ namespace LJMSOFT.View
         String existeRazaoSocial = "", existeCpfCnpj = "", existeApelido = "";
         public static int tipoHandle = 0, pessoaHandle = 0;
     
-        
-        //Conexao com banco
-        static public String conString = "Data Source=DESKTOP-1DAI7PD;Initial Catalog=SGBDSOFT;Integrated Security=True";
-        SqlConnection conexaoBanco = new SqlConnection(conString);
 
-        BancoDeDados BancoDeDados = new BancoDeDados();
+        //conexao com banco
+        Conexao conexao = new Conexao();
 
         public TelaRegistro()
         {
             InitializeComponent();
-           
+            
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -69,15 +68,16 @@ namespace LJMSOFT.View
         private void listarTipo(object sender, EventArgs e)
         {
 
-            conexaoBanco.Open();
 
+            conexao.Conectar();
             //Limpa a combo box
             tipoCombo.Items.Clear();
 
             //Lista os tipos
             String query1 = "SELECT NOME FROM US_TIPO";
-            SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
-            SqlDataReader reader = cmd1.ExecuteReader();
+            
+            SqlDataReader reader = conexao.Pesquisa(query1);
+
 
             while (reader.Read())
             {
@@ -85,8 +85,8 @@ namespace LJMSOFT.View
             }
 
             reader.Close();
+            conexao.Desconectar();
 
-            conexaoBanco.Close();
         }
 
         private void keyDownf3RamoAtividade(object sender, KeyEventArgs e)
@@ -120,7 +120,7 @@ namespace LJMSOFT.View
 
         private void tipoCombo_DropDownClosed(object sender, EventArgs e)
         {
-            conexaoBanco.Open();
+            conexao.Conectar();
             //Verifica se o combobox está vazio e atribui handle = 0
             tipoHandle = 0;
             Object selectedItem = tipoCombo.SelectedItem;
@@ -137,8 +137,8 @@ namespace LJMSOFT.View
             {
                 
                 String query1 = "SELECT HANDLE FROM US_TIPO WHERE NOME = '" + tipo + "'";
-                SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
-                SqlDataReader reader = cmd1.ExecuteReader();
+
+                SqlDataReader reader = conexao.Pesquisa(query1);
 
                 while (reader.Read())
                 {
@@ -147,10 +147,10 @@ namespace LJMSOFT.View
                 }
                 reader.Close();
             }
-            
-            conexaoBanco.Close();
 
-            
+            conexao.Desconectar();
+
+
         }
 
         private void tipoCombo_ControlRemoved(object sender, ControlEventArgs e)
@@ -215,7 +215,7 @@ namespace LJMSOFT.View
         {
             //GRAVAR
 
-            conexaoBanco.Open();
+            conexao.Conectar();
 
             //Busca os dados do formulário
             apelido = apelidoBox.Text;
@@ -243,8 +243,8 @@ namespace LJMSOFT.View
             if(tipo != "")
             {
                 String query1 = "SELECT HANDLE FROM US_TIPO WHERE NOME = '" + tipo + "'";
-                SqlCommand cmd1 = new SqlCommand(query1,conexaoBanco);
-                SqlDataReader reader = cmd1.ExecuteReader();
+                
+                SqlDataReader reader = conexao.Pesquisa(query1);
 
                 while (reader.Read())
                 {
@@ -281,11 +281,8 @@ namespace LJMSOFT.View
                                     String query1 = "SELECT RAZAOSOCIAL FROM US_USUARIO WHERE RAZAOSOCIAL = '" + razaoSocial + "'";
                                     String query2 = "SELECT CPFCNPJ FROM US_USUARIO WHERE CPFCNPJ = '" + cpfCnpj + "'";
                                     String query3 = "SELECT APELIDO FROM US_USUARIO WHERE APELIDO = '"+apelido+"'";
-                                    SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
-                                    SqlCommand cmd2 = new SqlCommand(query2, conexaoBanco);
-                                    SqlCommand cmd3 = new SqlCommand(query3, conexaoBanco);
-                                    SqlDataReader reader1 = cmd1.ExecuteReader();
-                                   
+                                    SqlDataReader reader1 = conexao.Pesquisa(query1);
+
 
                                     while (reader1.Read())
                                     {
@@ -293,15 +290,15 @@ namespace LJMSOFT.View
                                     }
 
                                     reader1.Close();
-                                    SqlDataReader reader2 = cmd2.ExecuteReader();
-                                  
+                                    SqlDataReader reader2 = conexao.Pesquisa(query2);
+
                                     while (reader2.Read())
                                     {
                                         existeCpfCnpj = reader2["CPFCNPJ"].ToString();
                                     }
 
                                     reader2.Close();
-                                    SqlDataReader reader3 = cmd3.ExecuteReader();
+                                    SqlDataReader reader3 = conexao.Pesquisa(query3);
 
                                     while (reader3.Read())
                                     {
@@ -325,14 +322,12 @@ namespace LJMSOFT.View
                                                 
                                                 //Query para dar insert nos dados
                                                 String query4 = "INSERT INTO US_USUARIO (APELIDO, RAZAOSOCIAL, TIPO, CPFCNPJ, TELEFONE, CELULAR, EMAIL) VALUES ('" + apelido + "', '" + razaoSocial + "', '" + tipoHandle + "', '" + cpfCnpj + "', " + "'" + telefone + "', '" + celular + "', '" + email + "')";
-                                                // MessageBox.Show(query2);
-                                                SqlCommand cmd4 = new SqlCommand(query4, conexaoBanco);
-                                                cmd4.ExecuteNonQuery();
+                                                conexao.Inserir(query4);
+                                                
 
                                                 //Verifica o complemento pertencente a essa pessoa
                                                 String query5 = "SELECT HANDLE FROM US_USUARIO WHERE CPFCNPJ = '" + cpfCnpj + "'";
-                                                SqlCommand cmd5 = new SqlCommand(query5, conexaoBanco);
-                                                SqlDataReader reader5 = cmd5.ExecuteReader();
+                                                SqlDataReader reader5 = conexao.Pesquisa(query5);
                                                 while (reader5.Read())
                                                 {
                                                     pessoaHandle = Convert.ToInt32(reader5["HANDLE"]);
@@ -341,8 +336,7 @@ namespace LJMSOFT.View
 
                                                 //Salva o complemento correspondente a pessoa
                                                 String query6 = "INSERT INTO US_COMPLEMENTO (PESSOA, RAMOATIVIDADE, SETORATIVIDADE, CATEGORIAATIVIDADE, DESCRICAO) VALUES ('"+pessoaHandle+"', '"+ramoAtividade+ "', '" + setorAtividade + "', '" + categoriaAtividade + "', '" + descricao + "')";
-                                                SqlCommand cmd6 = new SqlCommand(query6, conexaoBanco);
-                                                cmd6.ExecuteNonQuery();
+                                                conexao.Inserir(query6);
                                                 MessageBox.Show("Cadastrado");
                                             }
                                             else
@@ -394,9 +388,9 @@ namespace LJMSOFT.View
             {
                 MessageBox.Show("Preencha o campo Apelido");
             }
-                  
 
-            conexaoBanco.Close();
+
+            conexao.Desconectar();
 
         }
 

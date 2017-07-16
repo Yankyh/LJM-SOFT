@@ -36,10 +36,21 @@ namespace LJMSOFT.View
             TelaRegistro TelaRegistro = new TelaRegistro();
             TelaRegistro.Show();
 
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+         
+
+            Conexao conexao = new Conexao();
+            String query = "SELECT * FROM US_TIPO";
+            int   nome = 0;
+            conexao.Conectar();
+            SqlDataReader data = conexao.Pesquisa(query);
+
+            MessageBox.Show(nome.ToString());
+
 
         }
     }
