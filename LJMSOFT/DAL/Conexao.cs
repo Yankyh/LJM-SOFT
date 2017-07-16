@@ -25,6 +25,7 @@ namespace LJMSOFT.DAL
         {
             this.cmd = new SqlCommand(pesquisa, this.conexao);
             SqlDataReader resultSet = cmd.ExecuteReader();
+            
             return resultSet;
         }
         //open
@@ -40,7 +41,7 @@ namespace LJMSOFT.DAL
             }
 
         }
-        public String
+    
         public void Desconectar()
         {
             try

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LJMSOFT.View;
+using LJMSOFT.DAL;
+using System.Data.SqlClient;
 
 namespace LJMSOFT.View
 {
@@ -34,6 +36,10 @@ namespace LJMSOFT.View
             TelaRegistro TelaRegistro = new TelaRegistro();
             TelaRegistro.Show();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
 
         }
     }
