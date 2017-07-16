@@ -206,9 +206,6 @@ namespace LJMSOFT.View
                 ramoAtividadeCombo.Items.Add((reader8["NOME"].ToString()));
             }
 
-          
-
-
             conexao.Desconectar();
         }
 
@@ -253,6 +250,26 @@ namespace LJMSOFT.View
                 
             }
 
+            conexao.Desconectar();
+        }
+
+        private void listarSetorAtividade(object sender, EventArgs e)
+        {
+            conexao.Conectar();
+            String setorAtividadeHandle = "";
+            setorAtividade = ramoAtividadeHandle.ToString();
+            //Limpa a combo box
+            setorAtividadeCombo.Items.Clear();
+
+            //Lista os tipos
+            String query1 = "SELECT A.NOME FROM US_SETORATIVIDADE A" +
+                " INNER JOIN US_RAMOATIVIDADE B ON B.HANDLE = "+setorAtividade;
+            SqlDataReader reader8 = conexao.Pesquisa(query1);
+
+            while (reader8.Read())
+            {
+                setorAtividadeCombo.Items.Add((reader8["NOME"].ToString()));
+            }
             conexao.Desconectar();
         }
 
@@ -373,9 +390,9 @@ namespace LJMSOFT.View
                                     existeApelido = "1";
 
                                     //Verifica se já existe alguém com esses dados no banco
-                                    String query1 = "SELECT RAZAOSOCIAL FROM US_USUARIO WHERE RAZAOSOCIAL = '" + razaoSocial + "'";
-                                    String query2 = "SELECT CPFCNPJ FROM US_USUARIO WHERE CPFCNPJ = '" + cpfCnpj + "'";
-                                    String query3 = "SELECT APELIDO FROM US_USUARIO WHERE APELIDO = '"+apelido+"'";
+                                    String query1 = "SELECT RAZAOSOCIAL FROM US_PESSOA WHERE RAZAOSOCIAL = '" + razaoSocial + "'";
+                                    String query2 = "SELECT CPFCNPJ FROM US_PESSOA WHERE CPFCNPJ = '" + cpfCnpj + "'";
+                                    String query3 = "SELECT APELIDO FROM US_PESSOA WHERE APELIDO = '"+apelido+"'";
                                     SqlDataReader reader1 = conexao.Pesquisa(query1);
 
 
@@ -416,12 +433,12 @@ namespace LJMSOFT.View
                                             {
                                                 
                                                 //Query para dar insert nos dados
-                                                String query4 = "INSERT INTO US_USUARIO (APELIDO, RAZAOSOCIAL, TIPO, CPFCNPJ, TELEFONE, CELULAR, EMAIL) VALUES ('" + apelido + "', '" + razaoSocial + "', '" + tipoHandle + "', '" + cpfCnpj + "', " + "'" + telefone + "', '" + celular + "', '" + email + "')";
+                                                String query4 = "INSERT INTO US_PESSOA (APELIDO, RAZAOSOCIAL, TIPO, CPFCNPJ, TELEFONE, CELULAR, EMAIL) VALUES ('" + apelido + "', '" + razaoSocial + "', '" + tipoHandle + "', '" + cpfCnpj + "', " + "'" + telefone + "', '" + celular + "', '" + email + "')";
                                                 conexao.Inserir(query4);
                                                 
 
                                                 //Verifica o complemento pertencente a essa pessoa
-                                                String query5 = "SELECT HANDLE FROM US_USUARIO WHERE CPFCNPJ = '" + cpfCnpj + "'";
+                                                String query5 = "SELECT HANDLE FROM US_PESSOA WHERE CPFCNPJ = '" + cpfCnpj + "'";
                                                 SqlDataReader reader5 = conexao.Pesquisa(query5);
                                                 while (reader5.Read())
                                                 {

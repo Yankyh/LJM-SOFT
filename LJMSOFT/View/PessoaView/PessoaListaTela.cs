@@ -21,7 +21,7 @@ namespace LJMSOFT.View.PessoaView
             conex.Conectar();
             BindingSource Binding = new BindingSource();
             pessoaDataGridView.AutoGenerateColumns = true;
-            String query = "SELECT * FROM US_USUARIO";
+            String query = "SELECT * FROM US_PESSOA";
             Binding.DataSource = conex.DataTable(query);
             pessoaDataGridView.DataSource = Binding;
             pessoaDataGridView.AllowUserToResizeRows = false;
