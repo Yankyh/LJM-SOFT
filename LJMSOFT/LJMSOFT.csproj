@@ -81,6 +81,12 @@
     <Compile Include="View\PessoaView\Endereco.Designer.cs">
       <DependentUpon>Endereco.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PessoaView\PessoaComplemento\PessoaRamoAtividade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PessoaView\PessoaComplemento\PessoaRamoAtividade.Designer.cs">
+      <DependentUpon>PessoaRamoAtividade.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PessoaView\SetorAtividadeTela.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="View\PessoaView\Endereco.resx">
       <DependentUpon>Endereco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PessoaView\PessoaComplemento\PessoaRamoAtividade.resx">
+      <DependentUpon>PessoaRamoAtividade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PessoaView\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>

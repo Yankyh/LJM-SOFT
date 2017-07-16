@@ -14,6 +14,7 @@ namespace LJMSOFT.DAL
         protected String stringConexao = "Data Source=192.168.0.5;Initial Catalog=SGBDSOFT;Persist Security Info=True;User ID=sa;Password=33226655;";
         protected SqlConnection conexao;
         protected SqlCommand cmd;
+        protected SqlDataReader resultSet;
         //transaction
 
         public Conexao()
@@ -24,11 +25,15 @@ namespace LJMSOFT.DAL
 
         public SqlDataReader Pesquisa(String query)
         {
+            this.Desconectar();
+            this.Conectar();
             this.cmd = new SqlCommand(query, this.conexao);
-            SqlDataReader resultSet = cmd.ExecuteReader();
-            return resultSet;
+            this.resultSet = cmd.ExecuteReader();
+            
+            return resultSet;  
         }
 
+     
 
         public SqlDataReader Tabela(int numeroHandle, String tabela)
         {
