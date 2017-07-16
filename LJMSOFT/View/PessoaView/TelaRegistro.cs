@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LJMSOFT.Mod;
 using LJMSOFT.DAL;
 using System.Data.SqlClient;
+using LJMSOFT.View.PessoaView.PessoaComplemento;
 
 namespace LJMSOFT.View
 {
@@ -18,7 +19,7 @@ namespace LJMSOFT.View
         private String apelido = "", razaoSocial = "", cpfCnpj = "", telefone = "", celular = "", email = "", tipo = "";
         private String ramoAtividade = "", setorAtividade = "", categoriaAtividade = "", descricao = "";
         String existeRazaoSocial = "", existeCpfCnpj = "", existeApelido = "";
-        public static int tipoHandle = 0, pessoaHandle = 0;
+        public static int tipoHandle = 0, pessoaHandle = 0, ramoAtividadeHandle= 0;
     
 
         //conexao com banco
@@ -67,9 +68,6 @@ namespace LJMSOFT.View
         //COMBOBOX TIPO
         private void listarTipo(object sender, EventArgs e)
         {
-
-            
-
             conexao.Conectar();
             //Limpa a combo box
             tipoCombo.Items.Clear();
@@ -96,7 +94,9 @@ namespace LJMSOFT.View
         {
             if (e.KeyCode == Keys.F3)
             {
-              
+                PessoaRamoAtividade PessoaRazaoSocialTela = new PessoaRamoAtividade();
+                MessageBox.Show(ramoAtividadeHandle.ToString());
+                PessoaRazaoSocialTela.ShowDialog();
 
             }
         }
@@ -183,12 +183,77 @@ namespace LJMSOFT.View
             conex.Desconectar();
         }
 
+        private void listarRamoAtividade(object sender, EventArgs e)
+        {
+            
+            conexao.Conectar();
+
+            //Limpa a combo box
+            ramoAtividadeCombo.Items.Clear();
+
+            //Lista os tipos
+            String query1 = "SELECT * FROM US_RAMOATIVIDADE"; 
+            SqlDataReader reader8 = conexao.Pesquisa(query1);
+
+            while (reader8.Read())
+            {
+                ramoAtividadeCombo.Items.Add((reader8["NOME"].ToString()));
+            }
+
+          
+
+
+            conexao.Desconectar();
+        }
+
+        private void ramoAtividadeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ramoAtividadeCombo_DropDownClosed(object sender, EventArgs e)
+        {
+            String ramoAtividadeNome = "";
+            conexao.Conectar();
+            //Verifica se o combobox está vazio e atribui handle = 0
+            ramoAtividadeHandle = 0;
+            Object selectedItem = ramoAtividadeCombo.SelectedItem;
+            if (selectedItem == null)
+            {
+                ramoAtividadeNome = null;
+            }
+            else
+            {
+                ramoAtividadeNome = selectedItem.ToString();
+            }
+
+            if (ramoAtividadeNome != null)
+            {
+
+                String query1 = "SELECT HANDLE FROM US_RAMOATIVIDADE WHERE NOME = '" + ramoAtividadeNome + "'";
+
+                SqlDataReader reader = conexao.Pesquisa(query1);
+
+                while (reader.Read())
+                {
+                    ramoAtividadeHandle = Convert.ToInt32(reader["HANDLE"].ToString());
+                    MessageBox.Show(ramoAtividadeHandle.ToString());
+
+                }
+                reader.Close();
+            }
+
+            conexao.Desconectar();
+        }
+
         //Passa o tipo
         public static int getTipoHandle()
         {
-            
-            return tipoHandle;
-             
+            return tipoHandle;   
+        }
+        public static int getRamoAtividadeHandle()
+        {
+            return ramoAtividadeHandle;
         }
 
 

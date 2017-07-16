@@ -192,17 +192,20 @@
             // 
             // gravarButton
             // 
+            this.gravarButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gravarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gravarButton.Location = new System.Drawing.Point(513, 353);
+            this.gravarButton.Location = new System.Drawing.Point(519, 353);
             this.gravarButton.Name = "gravarButton";
             this.gravarButton.Size = new System.Drawing.Size(96, 34);
             this.gravarButton.TabIndex = 69;
             this.gravarButton.Text = "Gravar";
+            this.gravarButton.UseCompatibleTextRendering = true;
             this.gravarButton.UseVisualStyleBackColor = true;
             this.gravarButton.Click += new System.EventHandler(this.gravarButton_Click);
             // 
             // liberarButton
             // 
+            this.liberarButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.liberarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liberarButton.Location = new System.Drawing.Point(617, 353);
             this.liberarButton.Name = "liberarButton";
@@ -215,12 +218,13 @@
             // voltarButton
             // 
             this.voltarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voltarButton.Location = new System.Drawing.Point(409, 353);
+            this.voltarButton.Location = new System.Drawing.Point(520, 353);
             this.voltarButton.Name = "voltarButton";
             this.voltarButton.Size = new System.Drawing.Size(96, 34);
             this.voltarButton.TabIndex = 71;
             this.voltarButton.Text = "Voltar";
             this.voltarButton.UseVisualStyleBackColor = true;
+            this.voltarButton.Click += new System.EventHandler(this.voltarButton_Click);
             // 
             // TelaTipoPessoa
             // 

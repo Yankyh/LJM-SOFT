@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LJMSOFT.DAL;
+using LJMSOFT.Control;
+
 namespace LJMSOFT.View
 {
     public partial class TelaTipoPessoa : Form
@@ -21,6 +23,7 @@ namespace LJMSOFT.View
 
         //Conexao com banco
         Conexao conexao = new Conexao();
+        
 
         TelaRegistro TelaRegistro = new TelaRegistro();
 
@@ -137,36 +140,9 @@ namespace LJMSOFT.View
         {
             conexao.Desconectar();
             conexao.Conectar();
-            if (status == 3)
-            {
-                if (gravarButton.Text == "Voltar")
-                {
-                    nomeBox.Enabled = true;
-                    this.Text = "Tipo - Ag. Modificações";
-                    gravarButton.Text = "Liberar";
-                    status = 2;
-                    String query8 = "UPDATE US_TIPO SET STATUS = " + 2 + " WHERE HANDLE = " + tipoHandle + "";
-                    conexao.Inserir(query8);
-                }
-                else
-                {
-                    
-                    String query3 = "UPDATE US_TIPO SET STATUS = " + 3 + " WHERE HANDLE = "+tipoHandle+"";
-                    conexao.Inserir(query3);
+      
 
-                    nomeBox.Enabled = false;
-                    this.Text = "Tipo - Ativo";
-                    gravarButton.Text = "Voltar";
-
-                   
-                }
-               
-            }
-            else
-            {
-                nomeTipo = nomeBox.Text;
-
-             
+            nomeTipo = nomeBox.Text;
 
                 //Query para dar insert nos dados
                 if (nomeTipo != "")
@@ -183,28 +159,24 @@ namespace LJMSOFT.View
                     }
                     reader.Close();
 
-                    if(existeHandle > 0)
-                    {
-                        String query6 = "UPDATE US_TIPO SET NOME = '"+nomeTipo+"', STATUS = "+3+" WHERE HANDLE = "+tipoHandle;
+                if (existeHandle > 0)
+                {
+                    this.Text = "Tipo - Ag. Modificações";
+                    status = 2;
+                }
+                else
+                {
+                    String query1 = "INSERT INTO US_TIPO (NOME, STATUS) VALUES ('" + nomeTipo + "', '" + 1 + "')";
+                    conexao.Inserir(query1);
 
-                        conexao.Inserir(query6);
+                    this.Text = "Tipo - Cadastrado";
+                    
+                    status = 2;
+                    codigoBox.Text = getTipoHandleByName().ToString();
+                }
 
-                        gravarButton.Text = "Voltar";
-                        this.Text = "Tipo - Ativo";
-                        nomeBox.Enabled = false;
-                        status = 3;
-                    }
-                    else
-                    {
-                        String query1 = "INSERT INTO US_TIPO (NOME, STATUS) VALUES ('" + nomeTipo + "', '" + 1 + "')";
-                        conexao.Inserir(query1);
-
-                        this.Text = "Tipo - Cadastrado";
-                        gravarButton.Text = "Liberar";
-                        MessageBox.Show("Liberado");
-                        status = 3;
-                        codigoBox.Text = getTipoHandleByName().ToString();
-                    }
+                gravarButton.Visible = false;
+                liberarButton.Visible = true;
                
                 }
                 else
@@ -214,7 +186,7 @@ namespace LJMSOFT.View
 
 
                 conexao.Desconectar();
-            }
+            
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -229,14 +201,21 @@ namespace LJMSOFT.View
         {
 
 
-            String query3 = "UPDATE US_TIPO SET STATUS = " + 3 + " WHERE HANDLE = " + tipoHandle + "";
-            conexao.Inserir(query3);
 
-            nomeBox.Enabled = false;
-            this.Text = "Tipo - Ativo";
-            gravarButton.Visible = false;
+            if (Controle.EhLiberar() == System.Windows.Forms.DialogResult.Yes){
+                conexao.Conectar();
 
+                String query3 = "UPDATE US_TIPO SET STATUS = " + 3 + " WHERE HANDLE = " + tipoHandle + "";
+                conexao.Inserir(query3);
 
+                nomeBox.Enabled = false;
+                this.Text = "Tipo - Ativo";
+                gravarButton.Visible = false;
+                liberarButton.Visible = false;
+                voltarButton.Visible = true;
+
+                conexao.Desconectar();
+            }
         }
 
         private void nomeBox_TextChanged(object sender, EventArgs e)
@@ -246,6 +225,22 @@ namespace LJMSOFT.View
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void voltarButton_Click(object sender, EventArgs e)
+        {
+            conexao.Conectar();
+
+            nomeBox.Enabled = true;
+            this.Text = "Tipo - Ag. Modificações";
+            gravarButton.Visible = true;
+            voltarButton.Visible = false;
+            status = 2;
+            String query8 = "UPDATE US_TIPO SET STATUS = " + 2 + " WHERE HANDLE = " + tipoHandle + "";
+            conexao.Inserir(query8);
+
+            conexao.Desconectar();
 
         }
     }
