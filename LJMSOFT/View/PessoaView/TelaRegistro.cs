@@ -263,7 +263,7 @@ namespace LJMSOFT.View
 
             //Lista os tipos
             String query1 = "SELECT A.NOME FROM US_SETORATIVIDADE A" +
-                " INNER JOIN US_RAMOATIVIDADE B ON B.HANDLE = "+setorAtividade;
+                " INNER JOIN US_RAMOATIVIDADE B ON B.HANDLE = A.HANDLE WHERE A.RAMOATIVIDADE"+setorAtividade;
             SqlDataReader reader8 = conexao.Pesquisa(query1);
 
             while (reader8.Read())
