@@ -199,7 +199,7 @@ namespace LJMSOFT.View
             if(e.KeyCode == Keys.F3) 
             {
                 TelaTipoPessoa TelaTipoPessoa = new TelaTipoPessoa();
-                TelaTipoPessoa.Show();
+                TelaTipoPessoa.ShowDialog();
                 
             }
            
