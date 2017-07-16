@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LJMSOFT.View;
 using LJMSOFT.DAL;
 using System.Data.SqlClient;
+using LJMSOFT.View.PessoaView;
 
 namespace LJMSOFT.View
 {
@@ -41,17 +42,8 @@ namespace LJMSOFT.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-         
-
-            Conexao conexao = new Conexao();
-            String query = "SELECT * FROM US_TIPO";
-            int   nome = 0;
-            conexao.Conectar();
-            SqlDataReader data = conexao.Pesquisa(query);
-
-            MessageBox.Show(nome.ToString());
-
-
+            PessoaListaTela pessoaListaTela = new PessoaListaTela();
+            pessoaListaTela.Show();
         }
     }
 }

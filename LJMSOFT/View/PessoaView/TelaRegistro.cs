@@ -185,7 +185,7 @@ namespace LJMSOFT.View
 "INNER JOIN US_MUNICIPIO D ON A.MUNICIPIO = D.HANDLE" +
 "INNER JOIN US_ESTADO E ON E.HANDLE = A.ESTADO" +
 "INNER JOIN US_PAIS F ON F.HANDLE = A.PAIS";
-            dataGridViewEndereco.DataSource = conex.DataTable(query);
+            Binding.DataSource = conex.DataTable(query);
             dataGridViewEndereco.DataSource = Binding;
             conex.Desconectar();
         }

@@ -87,6 +87,12 @@
     <Compile Include="View\PessoaView\PessoaComplemento\PessoaRamoAtividade.Designer.cs">
       <DependentUpon>PessoaRamoAtividade.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PessoaView\PessoaListaTela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PessoaView\PessoaListaTela.Designer.cs">
+      <DependentUpon>PessoaListaTela.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PessoaView\SetorAtividadeTela.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PessoaView\PessoaComplemento\PessoaRamoAtividade.resx">
       <DependentUpon>PessoaRamoAtividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PessoaView\PessoaListaTela.resx">
+      <DependentUpon>PessoaListaTela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PessoaView\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
