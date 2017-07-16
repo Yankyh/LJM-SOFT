@@ -56,7 +56,7 @@ namespace LJMSOFT.DAL
 
             DataTable table = new DataTable();
             table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            adapter.Fill(table);
+           adapter.Fill(table);
 
             return table;
         }

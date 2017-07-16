@@ -70,15 +70,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.enderecoTab = new System.Windows.Forms.TabPage();
             this.dataGridViewEndereco = new System.Windows.Forms.DataGridView();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipoLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contatoTab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -572,84 +563,11 @@
             // dataGridViewEndereco
             // 
             this.dataGridViewEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEndereco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnTipo,
-            this.ColumnData,
-            this.ColumnTipoLog,
-            this.ColumnLogradouro,
-            this.ColumnNumero,
-            this.ColumnComplemento,
-            this.ColumnMunicipio,
-            this.ColumnEstado,
-            this.ColumnPais});
             this.dataGridViewEndereco.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewEndereco.Name = "dataGridViewEndereco";
             this.dataGridViewEndereco.Size = new System.Drawing.Size(885, 188);
             this.dataGridViewEndereco.TabIndex = 0;
             this.dataGridViewEndereco.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEndereco_CellContentClick);
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.Frozen = true;
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.Frozen = true;
-            this.ColumnData.HeaderText = "Data";
-            this.ColumnData.Name = "ColumnData";
-            this.ColumnData.ReadOnly = true;
-            // 
-            // ColumnTipoLog
-            // 
-            this.ColumnTipoLog.Frozen = true;
-            this.ColumnTipoLog.HeaderText = "Tipo log.";
-            this.ColumnTipoLog.Name = "ColumnTipoLog";
-            this.ColumnTipoLog.ReadOnly = true;
-            // 
-            // ColumnLogradouro
-            // 
-            this.ColumnLogradouro.Frozen = true;
-            this.ColumnLogradouro.HeaderText = "Logradouro";
-            this.ColumnLogradouro.Name = "ColumnLogradouro";
-            this.ColumnLogradouro.ReadOnly = true;
-            // 
-            // ColumnNumero
-            // 
-            this.ColumnNumero.Frozen = true;
-            this.ColumnNumero.HeaderText = "Número";
-            this.ColumnNumero.Name = "ColumnNumero";
-            this.ColumnNumero.ReadOnly = true;
-            // 
-            // ColumnComplemento
-            // 
-            this.ColumnComplemento.Frozen = true;
-            this.ColumnComplemento.HeaderText = "Complemento";
-            this.ColumnComplemento.Name = "ColumnComplemento";
-            this.ColumnComplemento.ReadOnly = true;
-            // 
-            // ColumnMunicipio
-            // 
-            this.ColumnMunicipio.Frozen = true;
-            this.ColumnMunicipio.HeaderText = "Municipio";
-            this.ColumnMunicipio.Name = "ColumnMunicipio";
-            this.ColumnMunicipio.ReadOnly = true;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.Frozen = true;
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
-            // 
-            // ColumnPais
-            // 
-            this.ColumnPais.Frozen = true;
-            this.ColumnPais.HeaderText = "Pais";
-            this.ColumnPais.Name = "ColumnPais";
-            this.ColumnPais.ReadOnly = true;
             // 
             // contatoTab
             // 
@@ -987,14 +905,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.TextBox pessoaComplemento;
         private System.Windows.Forms.DataGridView dataGridViewEndereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipoLog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogradouro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComplemento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMunicipio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPais;
     }
 }
