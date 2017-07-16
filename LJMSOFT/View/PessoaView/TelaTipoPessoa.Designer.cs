@@ -138,6 +138,7 @@
             this.button1.TabIndex = 51;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // codigoBox
             // 
@@ -185,6 +186,7 @@
             this.nomeBox.Size = new System.Drawing.Size(227, 26);
             this.nomeBox.TabIndex = 68;
             this.nomeBox.Text = "";
+            this.nomeBox.TextChanged += new System.EventHandler(this.nomeBox_TextChanged);
             // 
             // gravarButton
             // 

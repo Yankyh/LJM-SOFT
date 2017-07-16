@@ -38,6 +38,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabControlPainel = new System.Windows.Forms.TabControl();
             this.tabPageComplemento = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -56,18 +57,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControlPainel.SuspendLayout();
             this.tabPageComplemento.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxCep
             // 
+            this.comboBoxCep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCep.FormattingEnabled = true;
             this.comboBoxCep.Location = new System.Drawing.Point(21, 30);
             this.comboBoxCep.Name = "comboBoxCep";
             this.comboBoxCep.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCep.TabIndex = 0;
+            this.comboBoxCep.SelectedIndexChanged += new System.EventHandler(this.comboBoxCep_SelectedIndexChanged);
             // 
             // comboBoxTipoLogradouro
             // 
@@ -170,6 +172,16 @@
             this.tabPageComplemento.TabIndex = 0;
             this.tabPageComplemento.Text = "Complemento";
             this.tabPageComplemento.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(858, 254);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Fechar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label13
             // 
@@ -328,16 +340,6 @@
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Motivo";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(858, 254);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Fechar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Endereco
             // 
