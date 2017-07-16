@@ -29,6 +29,13 @@ namespace LJMSOFT.DAL
             return resultSet;
         }
 
+
+        public SqlDataReader Tabela(int numeroHandle, String tabela)
+        {
+            String query = "select * from " + tabela + " where handle = " + numeroHandle;
+            return this.Pesquisa(query);
+        }
+
         public void Inserir(String query)
         {
             this.cmd = new SqlCommand(query, this.conexao);

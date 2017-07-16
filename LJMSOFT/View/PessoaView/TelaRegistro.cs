@@ -166,6 +166,14 @@ namespace LJMSOFT.View
            
         }
 
+        private void dataGridViewEndereco_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindingSource Binding = new BindingSource();
+            dataGridViewEndereco.AutoGenerateColumns = true;
+            dataGridViewEndereco.DataSource = getData("SELECT NOME,CLSASE,LEVEL WHERE");
+            dataGridViewEndereco.DataSource = Binding;
+        }
+
         //Passa o tipo
         public static int getTipoHandle()
         {

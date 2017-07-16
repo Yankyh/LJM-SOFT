@@ -90,11 +90,23 @@
             this.telefoneBox = new System.Windows.Forms.RichTextBox();
             this.celularBox = new System.Windows.Forms.RichTextBox();
             this.emailBox = new System.Windows.Forms.RichTextBox();
+            this.dataGridViewEndereco = new System.Windows.Forms.DataGridView();
+            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTipoLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.complementoTab.SuspendLayout();
             this.abrangenciaTab.SuspendLayout();
+            this.enderecoTab.SuspendLayout();
             this.contatoTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEndereco)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -160,7 +172,7 @@
             this.tabControl1.Location = new System.Drawing.Point(58, 189);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(893, 220);
+            this.tabControl1.Size = new System.Drawing.Size(893, 223);
             this.tabControl1.TabIndex = 15;
             // 
             // complementoTab
@@ -546,10 +558,11 @@
             // enderecoTab
             // 
             this.enderecoTab.BackColor = System.Drawing.Color.Gainsboro;
+            this.enderecoTab.Controls.Add(this.dataGridViewEndereco);
             this.enderecoTab.Location = new System.Drawing.Point(4, 25);
             this.enderecoTab.Name = "enderecoTab";
             this.enderecoTab.Padding = new System.Windows.Forms.Padding(3);
-            this.enderecoTab.Size = new System.Drawing.Size(885, 191);
+            this.enderecoTab.Size = new System.Drawing.Size(885, 194);
             this.enderecoTab.TabIndex = 0;
             this.enderecoTab.Text = "Endereço";
             // 
@@ -779,6 +792,88 @@
             this.emailBox.TabIndex = 7;
             this.emailBox.Text = "";
             // 
+            // dataGridViewEndereco
+            // 
+            this.dataGridViewEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEndereco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTipo,
+            this.ColumnData,
+            this.ColumnTipoLog,
+            this.ColumnLogradouro,
+            this.ColumnNumero,
+            this.ColumnComplemento,
+            this.ColumnMunicipio,
+            this.ColumnEstado,
+            this.ColumnPais});
+            this.dataGridViewEndereco.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewEndereco.Name = "dataGridViewEndereco";
+            this.dataGridViewEndereco.Size = new System.Drawing.Size(885, 188);
+            this.dataGridViewEndereco.TabIndex = 0;
+            this.dataGridViewEndereco.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEndereco_CellContentClick);
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.Frozen = true;
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.ReadOnly = true;
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.Frozen = true;
+            this.ColumnData.HeaderText = "Data";
+            this.ColumnData.Name = "ColumnData";
+            this.ColumnData.ReadOnly = true;
+            // 
+            // ColumnTipoLog
+            // 
+            this.ColumnTipoLog.Frozen = true;
+            this.ColumnTipoLog.HeaderText = "Tipo log.";
+            this.ColumnTipoLog.Name = "ColumnTipoLog";
+            this.ColumnTipoLog.ReadOnly = true;
+            // 
+            // ColumnLogradouro
+            // 
+            this.ColumnLogradouro.Frozen = true;
+            this.ColumnLogradouro.HeaderText = "Logradouro";
+            this.ColumnLogradouro.Name = "ColumnLogradouro";
+            this.ColumnLogradouro.ReadOnly = true;
+            // 
+            // ColumnNumero
+            // 
+            this.ColumnNumero.Frozen = true;
+            this.ColumnNumero.HeaderText = "Número";
+            this.ColumnNumero.Name = "ColumnNumero";
+            this.ColumnNumero.ReadOnly = true;
+            // 
+            // ColumnComplemento
+            // 
+            this.ColumnComplemento.Frozen = true;
+            this.ColumnComplemento.HeaderText = "Complemento";
+            this.ColumnComplemento.Name = "ColumnComplemento";
+            this.ColumnComplemento.ReadOnly = true;
+            // 
+            // ColumnMunicipio
+            // 
+            this.ColumnMunicipio.Frozen = true;
+            this.ColumnMunicipio.HeaderText = "Municipio";
+            this.ColumnMunicipio.Name = "ColumnMunicipio";
+            this.ColumnMunicipio.ReadOnly = true;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.Frozen = true;
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            // 
+            // ColumnPais
+            // 
+            this.ColumnPais.Frozen = true;
+            this.ColumnPais.HeaderText = "Pais";
+            this.ColumnPais.Name = "ColumnPais";
+            this.ColumnPais.ReadOnly = true;
+            // 
             // TelaRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,8 +910,10 @@
             this.complementoTab.PerformLayout();
             this.abrangenciaTab.ResumeLayout(false);
             this.abrangenciaTab.PerformLayout();
+            this.enderecoTab.ResumeLayout(false);
             this.contatoTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEndereco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -886,5 +983,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Operadora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.TextBox pessoaComplemento;
+        private System.Windows.Forms.DataGridView dataGridViewEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipoLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogradouro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComplemento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMunicipio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPais;
     }
 }
