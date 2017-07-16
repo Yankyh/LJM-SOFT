@@ -40,6 +40,7 @@ namespace LJMSOFT.DAL
             }
 
         }
+        public String
         public void Desconectar()
         {
             try
