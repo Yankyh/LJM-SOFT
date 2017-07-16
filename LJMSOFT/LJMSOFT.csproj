@@ -142,6 +142,7 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="Control\" />
+    <Folder Include="TTT\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\LJMSOFT.exe" />
