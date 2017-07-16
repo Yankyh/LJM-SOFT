@@ -67,6 +67,7 @@
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\Controle.cs" />
     <Compile Include="DAL\Conexao.cs" />
     <Compile Include="DAL\MetodoQuery.cs" />
     <Compile Include="Mod\BancoDeDados.cs" />
@@ -152,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="Control\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\LJMSOFT.exe" />
