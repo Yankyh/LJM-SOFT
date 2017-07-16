@@ -18,7 +18,7 @@ namespace LJMSOFT
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new View.TelaLogin());
             int i = 3;
-            String vaitomanocu = "x";
+           
         }
     }
 }
