@@ -262,6 +262,7 @@ namespace LJMSOFT.View
         {
             return tipoHandle;   
         }
+
         public static int getRamoAtividadeHandle()
         {
             return ramoAtividadeHandle;
