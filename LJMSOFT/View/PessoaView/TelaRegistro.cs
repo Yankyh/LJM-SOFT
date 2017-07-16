@@ -172,8 +172,13 @@ namespace LJMSOFT.View
             conex.Conectar();
             BindingSource Binding = new BindingSource();
             dataGridViewEndereco.AutoGenerateColumns = true;
-            String query = "SELECT ";
-            dataGridViewEndereco.DataSource = conex.DataTable("");
+            String query = "SELECT B.SIGLA, A.DATAVALIDADE,C.NOME,A.LOGRADOURO,A.NUMERO,A.COMPLEMENTO,D.NOME,E.SIGLA,F.SIGLA FROM US_PESSOAENDERECO A" +
+"INNER JOIN US_TIPOPESSOAENDERECO B ON B.HANDLE = A.TIPO" +
+"INNER JOIN US_TIPOLOGRADOUROENDERECO C ON A.TIPOLOGRADOURO = B.HANDLE" +
+"INNER JOIN US_MUNICIPIO D ON A.MUNICIPIO = D.HANDLE" +
+"INNER JOIN US_ESTADO E ON E.HANDLE = A.ESTADO" +
+"INNER JOIN US_PAIS F ON F.HANDLE = A.PAIS";
+            dataGridViewEndereco.DataSource = conex.DataTable(query);
             dataGridViewEndereco.DataSource = Binding;
             conex.Desconectar();
         }
