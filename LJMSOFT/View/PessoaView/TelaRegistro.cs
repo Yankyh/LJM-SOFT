@@ -94,9 +94,16 @@ namespace LJMSOFT.View
         {
             if (e.KeyCode == Keys.F3)
             {
-                PessoaRamoAtividade PessoaRazaoSocialTela = new PessoaRamoAtividade();
-                MessageBox.Show(ramoAtividadeHandle.ToString());
-                PessoaRazaoSocialTela.ShowDialog();
+                if(ramoAtividadeHandle == 0)
+                {
+                    MessageBox.Show("Não é possível criar este campo");
+                }
+                else
+                {
+                    PessoaRamoAtividade PessoaRazaoSocialTela = new PessoaRamoAtividade();
+                    PessoaRazaoSocialTela.ShowDialog();
+                }
+             
 
             }
         }
@@ -241,6 +248,10 @@ namespace LJMSOFT.View
 
                 }
                 reader.Close();
+            }
+            else
+            {
+                
             }
 
             conexao.Desconectar();
