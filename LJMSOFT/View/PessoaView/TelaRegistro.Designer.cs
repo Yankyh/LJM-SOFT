@@ -691,6 +691,9 @@
             this.tipoCombo.TabIndex = 4;
             this.tipoCombo.DropDown += new System.EventHandler(this.listarTipo);
             this.tipoCombo.SelectedIndexChanged += new System.EventHandler(this.tipoCombo_SelectedIndexChanged);
+            this.tipoCombo.TextUpdate += new System.EventHandler(this.tipoCombo_TextUpdate);
+            this.tipoCombo.DropDownClosed += new System.EventHandler(this.tipoCombo_DropDownClosed);
+            this.tipoCombo.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.tipoCombo_ControlRemoved);
             this.tipoCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDownf3Tipo);
             this.tipoCombo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressf3Tipo);
             // 
@@ -805,6 +808,7 @@
             this.Name = "TelaRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaRegistro";
+            this.Activated += new System.EventHandler(this.TelaRegistro_Activated);
             this.Load += new System.EventHandler(this.TelaRegistro_Load);
             this.tabControl1.ResumeLayout(false);
             this.complementoTab.ResumeLayout(false);

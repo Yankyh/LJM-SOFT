@@ -17,7 +17,8 @@ namespace LJMSOFT.View
         private String apelido = "", razaoSocial = "", cpfCnpj = "", telefone = "", celular = "", email = "", tipo = "";
         private String ramoAtividade = "", setorAtividade = "", categoriaAtividade = "", descricao = "";
         String existeRazaoSocial = "", existeCpfCnpj = "", existeApelido = "";
-        private int tipoHandle = 0, pessoaHandle = 0;
+        public static int tipoHandle = 0, pessoaHandle = 0;
+    
         
         //Conexao com banco
         static public String conString = "Data Source=DESKTOP-1DAI7PD;Initial Catalog=SGBDSOFT;Integrated Security=True";
@@ -92,8 +93,8 @@ namespace LJMSOFT.View
         {
             if (e.KeyCode == Keys.F3)
             {
-                TelaTipoPessoa TelaTipoPessoa = new TelaTipoPessoa();
-                TelaTipoPessoa.Show();
+              
+
             }
         }
 
@@ -111,6 +112,65 @@ namespace LJMSOFT.View
         {
 
         }
+
+        private void tipoCombo_TextUpdate(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tipoCombo_DropDownClosed(object sender, EventArgs e)
+        {
+            conexaoBanco.Open();
+            //Verifica se o combobox está vazio e atribui handle = 0
+            tipoHandle = 0;
+            Object selectedItem = tipoCombo.SelectedItem;
+            if (selectedItem == null)
+            {
+                tipo = null;
+            }
+            else
+            {
+                tipo = selectedItem.ToString();
+            }
+
+            if (tipo != null)
+            {
+                
+                String query1 = "SELECT HANDLE FROM US_TIPO WHERE NOME = '" + tipo + "'";
+                SqlCommand cmd1 = new SqlCommand(query1, conexaoBanco);
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    tipoHandle = Convert.ToInt32(reader["HANDLE"].ToString());
+                    
+                }
+                reader.Close();
+            }
+            
+            conexaoBanco.Close();
+
+            
+        }
+
+        private void tipoCombo_ControlRemoved(object sender, ControlEventArgs e)
+        {
+           
+        }
+
+        private void TelaRegistro_Activated(object sender, EventArgs e)
+        {
+           
+        }
+
+        //Passa o tipo
+        public static int getTipoHandle()
+        {
+            
+            return tipoHandle;
+             
+        }
+
 
         private void celularBox_TextChanged(object sender, EventArgs e)
         {
@@ -140,10 +200,12 @@ namespace LJMSOFT.View
             {
                 TelaTipoPessoa TelaTipoPessoa = new TelaTipoPessoa();
                 TelaTipoPessoa.Show();
+                
             }
            
         }
-
+  
+     
         private void complementoTab_Click(object sender, EventArgs e)
         {
 

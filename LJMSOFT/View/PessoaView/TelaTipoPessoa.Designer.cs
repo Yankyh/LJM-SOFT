@@ -33,15 +33,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.nomeBox = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.codigoBox = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.setorAtividadeCombo = new System.Windows.Forms.ComboBox();
+            this.nomeBox = new System.Windows.Forms.RichTextBox();
+            this.gravarButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // apelidoBox
@@ -97,17 +97,6 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // nomeBox
-            // 
-            this.nomeBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomeBox.Location = new System.Drawing.Point(61, 86);
-            this.nomeBox.Multiline = false;
-            this.nomeBox.Name = "nomeBox";
-            this.nomeBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.nomeBox.Size = new System.Drawing.Size(237, 26);
-            this.nomeBox.TabIndex = 62;
-            this.nomeBox.Text = "";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -123,11 +112,12 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(299, 57);
+            this.label13.Location = new System.Drawing.Point(306, 57);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(144, 17);
             this.label13.TabIndex = 53;
             this.label13.Text = "Alçada de aprovação";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label14
             // 
@@ -142,23 +132,12 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(509, 353);
+            this.button1.Location = new System.Drawing.Point(61, 353);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 34);
             this.button1.TabIndex = 51;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(617, 353);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 34);
-            this.button3.TabIndex = 58;
-            this.button3.Text = "Registrar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // codigoBox
             // 
@@ -182,6 +161,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(652, 178);
             this.richTextBox2.TabIndex = 66;
             this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // setorAtividadeCombo
             // 
@@ -190,10 +170,32 @@
             this.setorAtividadeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.setorAtividadeCombo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setorAtividadeCombo.FormattingEnabled = true;
-            this.setorAtividadeCombo.Location = new System.Drawing.Point(302, 86);
+            this.setorAtividadeCombo.Location = new System.Drawing.Point(309, 86);
             this.setorAtividadeCombo.Name = "setorAtividadeCombo";
             this.setorAtividadeCombo.Size = new System.Drawing.Size(243, 26);
             this.setorAtividadeCombo.TabIndex = 67;
+            // 
+            // nomeBox
+            // 
+            this.nomeBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeBox.Location = new System.Drawing.Point(61, 86);
+            this.nomeBox.Multiline = false;
+            this.nomeBox.Name = "nomeBox";
+            this.nomeBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.nomeBox.Size = new System.Drawing.Size(227, 26);
+            this.nomeBox.TabIndex = 68;
+            this.nomeBox.Text = "";
+            // 
+            // gravarButton
+            // 
+            this.gravarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gravarButton.Location = new System.Drawing.Point(617, 353);
+            this.gravarButton.Name = "gravarButton";
+            this.gravarButton.Size = new System.Drawing.Size(96, 34);
+            this.gravarButton.TabIndex = 69;
+            this.gravarButton.Text = "Gravar";
+            this.gravarButton.UseVisualStyleBackColor = true;
+            this.gravarButton.Click += new System.EventHandler(this.gravarButton_Click);
             // 
             // TelaTipoPessoa
             // 
@@ -201,20 +203,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(768, 412);
+            this.Controls.Add(this.gravarButton);
+            this.Controls.Add(this.nomeBox);
             this.Controls.Add(this.setorAtividadeCombo);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.codigoBox);
-            this.Controls.Add(this.nomeBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.apelidoBox);
             this.Controls.Add(this.tipoCombo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "TelaTipoPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaTipoPessoa";
@@ -230,14 +233,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox nomeBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RichTextBox codigoBox;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.ComboBox setorAtividadeCombo;
+        private System.Windows.Forms.RichTextBox nomeBox;
+        private System.Windows.Forms.Button gravarButton;
     }
 }
