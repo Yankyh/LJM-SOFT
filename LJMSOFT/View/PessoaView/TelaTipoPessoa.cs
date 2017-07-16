@@ -35,7 +35,7 @@ namespace LJMSOFT.View
         {
             conexao.Desconectar();
             conexao.Conectar();
-            MessageBox.Show("Entrou");
+            
            
             if (tipoHandle != 0)
             {
@@ -60,6 +60,8 @@ namespace LJMSOFT.View
                     if (status == 2)
                     {
                         this.Text = "Tipo - Ag. Modificações";
+                        voltarButton.Visible = false;
+                        gravarButton.Visible = false;
                     }
                     else
                     {
@@ -67,12 +69,19 @@ namespace LJMSOFT.View
                         {
                             this.Text = "Tipo - Ativo";
                             nomeBox.Enabled = false;
-                            gravarButton.Text = "Voltar";
+                            gravarButton.Visible = false;
+                            liberarButton.Visible = false;
                         }
                     }
 
 
                 }
+            }
+            else
+            {
+                this.Text = "Tipo da pessoa";
+                voltarButton.Visible = false;
+                liberarButton.Visible = false;
             }
 
                 conexao.Desconectar();
@@ -212,6 +221,20 @@ namespace LJMSOFT.View
         {
 
           
+
+
+        }
+
+        private void liberarButton_Click(object sender, EventArgs e)
+        {
+
+
+            String query3 = "UPDATE US_TIPO SET STATUS = " + 3 + " WHERE HANDLE = " + tipoHandle + "";
+            conexao.Inserir(query3);
+
+            nomeBox.Enabled = false;
+            this.Text = "Tipo - Ativo";
+            gravarButton.Visible = false;
 
 
         }

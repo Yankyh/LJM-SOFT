@@ -42,6 +42,8 @@
             this.setorAtividadeCombo = new System.Windows.Forms.ComboBox();
             this.nomeBox = new System.Windows.Forms.RichTextBox();
             this.gravarButton = new System.Windows.Forms.Button();
+            this.liberarButton = new System.Windows.Forms.Button();
+            this.voltarButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // apelidoBox
@@ -189,7 +191,7 @@
             // gravarButton
             // 
             this.gravarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gravarButton.Location = new System.Drawing.Point(617, 353);
+            this.gravarButton.Location = new System.Drawing.Point(513, 353);
             this.gravarButton.Name = "gravarButton";
             this.gravarButton.Size = new System.Drawing.Size(96, 34);
             this.gravarButton.TabIndex = 69;
@@ -197,12 +199,35 @@
             this.gravarButton.UseVisualStyleBackColor = true;
             this.gravarButton.Click += new System.EventHandler(this.gravarButton_Click);
             // 
+            // liberarButton
+            // 
+            this.liberarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liberarButton.Location = new System.Drawing.Point(617, 353);
+            this.liberarButton.Name = "liberarButton";
+            this.liberarButton.Size = new System.Drawing.Size(96, 34);
+            this.liberarButton.TabIndex = 70;
+            this.liberarButton.Text = "Liberar";
+            this.liberarButton.UseVisualStyleBackColor = true;
+            this.liberarButton.Click += new System.EventHandler(this.liberarButton_Click);
+            // 
+            // voltarButton
+            // 
+            this.voltarButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voltarButton.Location = new System.Drawing.Point(409, 353);
+            this.voltarButton.Name = "voltarButton";
+            this.voltarButton.Size = new System.Drawing.Size(96, 34);
+            this.voltarButton.TabIndex = 71;
+            this.voltarButton.Text = "Voltar";
+            this.voltarButton.UseVisualStyleBackColor = true;
+            // 
             // TelaTipoPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(768, 412);
+            this.Controls.Add(this.voltarButton);
+            this.Controls.Add(this.liberarButton);
             this.Controls.Add(this.gravarButton);
             this.Controls.Add(this.nomeBox);
             this.Controls.Add(this.setorAtividadeCombo);
@@ -242,5 +267,7 @@
         private System.Windows.Forms.ComboBox setorAtividadeCombo;
         private System.Windows.Forms.RichTextBox nomeBox;
         private System.Windows.Forms.Button gravarButton;
+        private System.Windows.Forms.Button liberarButton;
+        private System.Windows.Forms.Button voltarButton;
     }
 }

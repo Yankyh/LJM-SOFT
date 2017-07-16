@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,22 @@ namespace LJMSOFT.DAL
             this.cmd = new SqlCommand(query, this.conexao);
             cmd.ExecuteNonQuery();
         }
+
+        //DATATABLE
+        public DataTable DataTable(String query)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            this.cmd = new SqlCommand(query, this.conexao);
+            adapter.SelectCommand = cmd;
+
+            DataTable table = new DataTable();
+            table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+            adapter.Fill(table);
+
+            return table;
+        }
+
+            
         //open
         public void Conectar()
         {

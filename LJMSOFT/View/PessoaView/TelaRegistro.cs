@@ -68,6 +68,7 @@ namespace LJMSOFT.View
         private void listarTipo(object sender, EventArgs e)
         {
 
+            
 
             conexao.Conectar();
             //Limpa a combo box
@@ -75,6 +76,8 @@ namespace LJMSOFT.View
 
             //Lista os tipos
             String query1 = "SELECT NOME FROM US_TIPO";
+            query1 = MetodoQuery.StatusNotIn(query1);
+            
             
             SqlDataReader reader = conexao.Pesquisa(query1);
 
