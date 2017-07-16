@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using LJMSOFT.DAL;
 namespace LJMSOFT.View
 {
     public partial class TelaTipoPessoa : Form
@@ -33,7 +33,11 @@ namespace LJMSOFT.View
 
         public void gettipoHandle()
         {
-            conexaoBanco.Open();
+            // conexaoBanco.Open();
+            Conexao conexao = new Conexao();
+            conexao.Conectar();
+            MessageBox.Show("Entrou");
+           
             if (tipoHandle != 0)
             {
                 //Preenche o form caso exista um handle
@@ -71,9 +75,9 @@ namespace LJMSOFT.View
 
                 }
             }
+           // conexao.Desconectar();
+                conexaoBanco.Close();
 
-            conexaoBanco.Close();
-            
         }
 
         public int getTipoHandleByName()
