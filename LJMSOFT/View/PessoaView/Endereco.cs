@@ -36,5 +36,10 @@ namespace LJMSOFT.View.PessoaView
         {
 
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
