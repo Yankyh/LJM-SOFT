@@ -33,7 +33,23 @@ namespace LJMSOFT.DAL
             return resultSet;  
         }
 
-     
+      public int VerificaSenha(String login,String senha)
+        {
+            int i = 0;
+            Conexao conex = new Conexao();
+            conex.Conectar();
+            String query = "declare @name varchar(30)," +
+                          " @senha varchar(20)," +
+                          " @aux varbinary(100) " +
+                          " set @name ='" + login.ToString() + "'" +
+                          " set @senha ='" + senha.ToString() + "'" +
+                          " select @aux=SENHA from US_USUARIO where USUARIO=@name" +
+                          " select pwdCompare(@senha,@aux,0)";
+            SqlDataReader result = conex.Pesquisa(query);
+            i=result.GetInt32(1);
+           conex.Desconectar();
+            return i;
+        }
 
         public SqlDataReader Tabela(int numeroHandle, String tabela)
         {

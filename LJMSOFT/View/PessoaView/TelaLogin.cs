@@ -45,5 +45,10 @@ namespace LJMSOFT.View
             PessoaListaTela pessoaListaTela = new PessoaListaTela();
             pessoaListaTela.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

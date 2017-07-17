@@ -256,6 +256,12 @@ namespace LJMSOFT.View
             conexao.Desconectar();
         }
 
+        private void setorAtividadeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
         //Passa o tipo
         public static int getTipoHandle()
         {
