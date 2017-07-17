@@ -29,7 +29,16 @@ namespace LJMSOFT.View
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Conexao conex = new Conexao();
+            String usuario = textBoxUsuario.Text;
+            String senha = textBoxSenha.Text;
+            if (conex.VerificaSenha(usuario,senha) == 1)
+            {
+                MessageBox.Show("entrou");
+            }
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
