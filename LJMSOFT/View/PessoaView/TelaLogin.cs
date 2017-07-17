@@ -63,5 +63,15 @@ namespace LJMSOFT.View
         {
 
         }
+
+        private void buttonRegistra_Click(object sender, EventArgs e)
+        {
+            String usuario = "";
+            String senha = "";
+            usuario = textBoxUsuario.Text;
+            senha = textBoxSenha.Text;
+            Conexao conex = new Conexao();
+            conex.AdicionarNovoUsuario(usuario, senha);
+        }
     }
 }
