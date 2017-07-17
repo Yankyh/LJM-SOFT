@@ -17,7 +17,7 @@ namespace LJMSOFT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new View.TelaLogin());
-            int i = 3;
+            int i =  1 + 1; // anderson
            
         }
     }
