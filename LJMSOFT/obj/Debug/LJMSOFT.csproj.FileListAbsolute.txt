@@ -1,0 +1,14 @@
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\bin\Debug\LJMSOFT.exe.config
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\bin\Debug\LJMSOFT.exe
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\bin\Debug\LJMSOFT.pdb
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.Properties.Resources.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.PessoaView.Endereco.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.PessoaView.PessoaComplemento.PessoaRamoAtividade.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.PessoaView.PessoaListaTela.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.TelaLogin.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.TelaTipoPessoa.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.Form2.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.View.TelaRegistro.resources
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.csproj.GenerateResource.Cache
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.exe
+C:\Users\onlin\Desktop\VISUAL GIT\LJM-SOFT\LJMSOFT\obj\Debug\LJMSOFT.pdb
