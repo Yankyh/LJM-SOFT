@@ -25,7 +25,6 @@ namespace LJMSOFT.DAL
 
         public SqlDataReader Pesquisa(String query)
         {
-            this.Desconectar();
             this.Conectar();
             this.cmd = new SqlCommand(query, this.conexao);
             this.resultSet = cmd.ExecuteReader();
@@ -36,7 +35,6 @@ namespace LJMSOFT.DAL
       public int VerificaSenha(String login,String senha)
         {
             int i = 0;
-            Conexao conex = new Conexao();
             String query = "declare @nome varchar(30)," +
                           "@senha varchar(20)," +
                           "@aux varbinary(100)" +
@@ -50,6 +48,21 @@ namespace LJMSOFT.DAL
             nomeTipo = reader["ResultadoQuery"].ToString();
             i = Convert.ToInt32(nomeTipo);
             return i;
+        }
+        public void AdicionarNovoUsuario(String login, String senha)
+        {
+            String query = "declare @nome varchar(30),@senha varchar(20)," +
+                 "@aux varbinary(100) set @nome ='" + login + "' set @senha ='" + senha + "' set @aux=Convert(varbinary(100),pwdEncrypt(@senha))" +
+                 "INSERT INTO US_USUARIO(USUARIO,SENHA) VALUES(@nome,@aux)";
+            try
+            {
+                Pesquisa(query);
+                MessageBox.Show("Funcionou!");
+            }
+            catch
+            {
+                MessageBox.Show("abc");
+            }
         }
 
         public SqlDataReader Tabela(int numeroHandle, String tabela)
