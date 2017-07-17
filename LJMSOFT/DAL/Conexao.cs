@@ -37,15 +37,20 @@ namespace LJMSOFT.DAL
         {
             int i = 0;
             Conexao conex = new Conexao();
-            String query = "declare @name varchar(30)," +
+            String query = "declare @nome varchar(30)," +
                           "@senha varchar(20)," +
                           "@aux varbinary(100)" +
-                          " set @name ='" + login + "'" +
-                          " set @senha ='" + senha + "'" +
-                          " select @aux=SENHA from US_USUARIO where USUARIO=@name" +
+                          " set @nome ='"+login+"'"+
+                          " set @senha ='" +senha +"'" +
+                          " select @aux=SENHA from US_USUARIO where USUARIO=@nome" +
                           " select pwdCompare(@senha,@aux,0) as ResultadoQuery";
-            SqlDataReader result = conex.Pesquisa(query);
-            i = Convert.ToInt32(result["ResultadoQuery"]);
+            SqlDataReader reader = Pesquisa(query);
+            String nomeTipo = "";
+            reader.Read();
+            nomeTipo = reader["ResultadoQuery"].ToString();
+            i = Convert.ToInt32(nomeTipo);
+           // SqlDataReader result = conex.Pesquisa(query);
+            //i = Convert.ToInt32(result["ResultadoQuery"]);
             return i;
         }
 
