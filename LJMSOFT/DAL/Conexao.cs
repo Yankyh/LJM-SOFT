@@ -49,8 +49,6 @@ namespace LJMSOFT.DAL
             reader.Read();
             nomeTipo = reader["ResultadoQuery"].ToString();
             i = Convert.ToInt32(nomeTipo);
-           // SqlDataReader result = conex.Pesquisa(query);
-            //i = Convert.ToInt32(result["ResultadoQuery"]);
             return i;
         }
 

@@ -36,6 +36,10 @@ namespace LJMSOFT.View
             {
                 MessageBox.Show("entrou");
             }
+            else
+            {
+                MessageBox.Show("Deu ruim! Senha incorreta");
+            }
 
 
 
