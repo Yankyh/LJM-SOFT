@@ -218,7 +218,7 @@
             this.setorAtividadeCombo.Name = "setorAtividadeCombo";
             this.setorAtividadeCombo.Size = new System.Drawing.Size(243, 26);
             this.setorAtividadeCombo.TabIndex = 38;
-            this.setorAtividadeCombo.SelectedIndexChanged += new System.EventHandler(this.setorAtividadeCombo_SelectedIndexChanged);
+            this.setorAtividadeCombo.DropDown += new System.EventHandler(this.listarSetorAtividade);
             this.setorAtividadeCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDownf3SetorAtividade);
             // 
             // ramoAtividadeCombo
