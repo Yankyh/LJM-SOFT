@@ -11,7 +11,7 @@ namespace LJMSOFT.DAL
 {
     class Conexao
     {
-        protected String stringConexao = "Data Source=192.168.0.5;Initial Catalog=SGBDSOFT;Persist Security Info=True;User ID=sa;Password=33226655;";
+        protected String stringConexao = "Data Source=25.7.32.34;Initial Catalog=SGBDSOFT;Persist Security Info=True;User ID=sa;Password=33226655;";
         protected SqlConnection conexao;
         protected SqlCommand cmd;
         protected SqlDataReader resultSet;
@@ -54,7 +54,7 @@ namespace LJMSOFT.DAL
 
         public SqlDataReader Tabela(int numeroHandle, String tabela)
         {
-            String query = "select * from " + tabela + " where handle = " + numeroHandle;
+            String query = "SELECT * FROM " + tabela + " WHERE HANDLE = " + numeroHandle;
             return this.Pesquisa(query);
         }
 
